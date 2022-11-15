@@ -1,23 +1,21 @@
 {% extends 'base.html' %}
 {% block content %}
 
-<h1>Finch List</h1>
+<h1>Finch Details</h1>
 
-{% for finch in finches %}
+
 <div class="card">
-  <a href="{% url 'detail' finch.id %}">
   <div class="card-content">
     <span class="card-title">{{ finch.common_name }}</span>
     {% if finch.migratory %}
     <p>Migratory: Yes</p>
-    <p>Range: {{ finch.range }} </p>
+    <p>Range: {{ finch.range }} </p> 
     {% else %}
     <p>Migratory: Nope</p>
-    <p>Range: {{ finch.range }} </p>
-    {% endif %}
+    <p>Range: {{ finch.range }} </p> 
   </div>
-</a>
+  {% endif %}
 </div>
-{% endfor%}
+
 
 {% endblock %}
