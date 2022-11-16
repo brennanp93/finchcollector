@@ -5,7 +5,7 @@ from django.urls import reverse
 
 class Finch(models.Model):
     common_name = models.CharField(max_length=100)
-    migratory = models.BooleanField()
+    migratory = models.BooleanField(default=True)
     range = models.CharField(max_length=100)
 
 

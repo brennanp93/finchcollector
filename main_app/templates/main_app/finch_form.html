@@ -10,11 +10,34 @@
 <form action="" method="POST">
     <!-- Django requires the following for security purposes -->
     {% csrf_token%}
-    <table>
+    <div >
         <!-- Render the inputs inside of <tr>s & <td>s -->
-        {{ form.as_table}}
-    </table>
+        {{ form.as_p }}
+        <!-- <label for="migratory">Migratory</label>
+        <input type="checkbox" name="migratory" id="migratory"> -->
+    </div>
     <input type="submit" value="Submit Your Finch!" class="btn">
-</form>
+</form> 
+
+
+<script>
+let labelEl = document.querySelector('label[for="id_migratory"]')
+console.log(labelEl, "Label")
+let checkBoxEl = document.getElementById('id_migratory')
+
+labelEl.appendChild(checkBoxEl)
+checkBoxEl.checked = 'checked';
+checkBoxEl.classList.add('filled-in')
+
+// checkBoxEl.addEventListener('change', function(evt) {
+//     if (checkBoxEl.checked === 'checked') {
+//         checkBoxEl.checked = 'unchecked';
+//     }
+//     if (checkBoxEl.checked === 'unchecked') {
+//         checkBoxEl.checked = 'checked';
+//     }
+//     console.log(checkBoxEl, "Event")
+// })
+</script>
 
 {% endblock %}
