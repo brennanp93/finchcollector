@@ -15,6 +15,10 @@
     <p>Range: {{ finch.range }} </p> 
   </div>
   {% endif %}
+  <div class="card-action">
+    <a href="{% url 'finch_update' finch.id %}">Edit</a>
+    <a href="{% url 'finch_delete' finch.id %}">Delete</a>
+  </div>
 </div>
 
 
