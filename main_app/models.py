@@ -10,10 +10,21 @@ TIMEOFDAY = (
 
 # Create your models here.
 
+class Seed(models.Model):
+    name = models.CharField(max_length=50)
+
+    def __str__(self):
+        return self.name
+
+    def get_absolute_url(self):
+        return reverse('seeds_detail', kwargs={'pk': self.id})
+
+
 class Finch(models.Model):
     common_name = models.CharField(max_length=100)
     migratory = models.BooleanField(default=True)
     range = models.CharField(max_length=100)
+    seeds = models.ManyToManyField(Seed)
 
 
  # Changing this instance method
@@ -33,6 +44,7 @@ class Sighting(models.Model):
         default=TIMEOFDAY[0][0]
     )
 
+    # create a finch_id FK
     finch = models.ForeignKey(
         Finch, 
         on_delete=models.CASCADE
